@@ -8,7 +8,13 @@ public class CompanyMasterDetails {
     
     private EmployeeMasterDetails empMasterDetails;
 
+    public CompanyMasterDetails(){}
+
     @Autowired
+    public CompanyMasterDetails(EmployeeMasterDetails emd){
+        this.empMasterDetails = emd;
+    }
+
     public void addEmployee(EmployeeMasterDetails emd){
         this.empMasterDetails = emd;
     }
