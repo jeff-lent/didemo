@@ -5,9 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CompanyMasterDetails {
-    @Autowired
+    
     private EmployeeMasterDetails empMasterDetails;
 
+    @Autowired
     public void addEmployee(EmployeeMasterDetails emd){
         this.empMasterDetails = emd;
     }
