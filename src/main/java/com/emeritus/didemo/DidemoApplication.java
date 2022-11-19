@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 
 @SpringBootApplication
 public class DidemoApplication
@@ -21,9 +22,13 @@ public class DidemoApplication
 	@Override
 	public void run(String... args){
 		LOG.info("Executing: command line runner");
-		for(int i=0; i< args.length; ++i){
-			LOG.info("args[{}]: {}", i, args[i]);
-		}
+		CompanyMasterDetails cmd = new CompanyMasterDetails();
+		EmployeeMasterDetails emd = new EmployeeMasterDetails();
+		emd.setEmpId(1);
+		emd.setEmpDept("HR");
+		emd.setEmpName("John Doe");
+		cmd.addEmployee(emd);
+		LOG.info(cmd.toString());
 	}
 
 }
